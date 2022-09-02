@@ -15,7 +15,6 @@ console.log(computerChoice);
 let getInputChoice = prompt("Choose one. Rock, paper or scissors");
 let userChoice=getInputChoice.toUpperCase();
 console.log(userChoice);
-
 function playRound(playerSelection, computerSelection){
 if (computerChoice===userChoice){
     return "It's a tie!"
@@ -39,8 +38,16 @@ if (userChoice==="ROCK"&& computerChoice==="PAPER"){
     return "Computer won!"
 }
 }
-const playerSelection=userChoice;
-const computerSelection=computerChoice;
-console.log(playRound());
-let result=playRound();
-console.log(result);
+
+function game(){
+    for (i=0; i<5; i++){
+        // console.log(playRound());
+        const playerSelection=userChoice;
+        const computerSelection=computerChoice;
+        // let result=playRound();
+        // console.log(result);
+playRound(playerSelection, computerSelection);
+console.log(playRound(playerSelection, computerSelection));
+    }
+}
+game();
