@@ -1,4 +1,4 @@
-function game(){
+
     let playerPoint=0;
     let computerPoint=0;
     for(i=0; i<5; i++){
