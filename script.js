@@ -1,72 +1,55 @@
+let playerScore=0;
+let computerScore=0;
 
-    let playerPoint=0;
-    let computerPoint=0;
-    for(i=0; i<5; i++){
-
-        let computerSelection;
-        function getComputerChoice(computerInput){
-            if (computerInput===1){
-                 computerSelection="ROCK";
-            }
-            else if (computerInput===2){
-                computerSelection="PAPER";
-            }
-            else computerSelection="SCISSORS";
-        }
-        let computerInput=Math.floor(Math.random()*3)+1;
-        getComputerChoice(computerInput);
-        
-        let playerSelection = prompt("Choose one. Rock, paper or scissors").toUpperCase();
-        
-        console.log(computerSelection);
-        console.log(playerSelection);
-        function playRound(playerSelection, computerSelection){
-        if (computerSelection===playerSelection){
-            return "It's a tie!"
-        }
-        if (computerSelection==="ROCK"&& playerSelection==="PAPER"){
-            return "You won!"
-        }
-        if (computerSelection==="ROCK"&& playerSelection==="SCISSORS"){
-            return "Computer won!"
-        }
-        if (computerSelection==="PAPER"&& playerSelection==="SCISSORS"){
-            return "You won!"
-        }
-        if (playerSelection==="ROCK"&& computerSelection==="PAPER"){
-            return "Computer won!"
-        }
-        if (playerSelection==="ROCK"&& computerSelection==="SCISSORS"){
-            return "You won!"
-        }
-        if (playerSelection==="PAPER"&& computerSelection==="SCISSORS"){
-            return "Computer won!"
-        }
-        }
-        console.log(playRound(playerSelection, computerSelection));
-
-        function Score(){
-        if(playRound(playerSelection, computerSelection)==="You won!"){
-            playerPoint++;
-        }
-        else if(playRound(playerSelection, computerSelection)==="Computer won!"){
-            computerPoint++;
-        }
-        else {
-            playerPoint += 0;
-            computerPoint =+0;
-        }
-        }
-        Score();
-    }
-    if (playerPoint>computerPoint){
-        console.log("Congratulations!, You've won!")
-    }
-    else if (playerPoint<computerPoint){
-        console.log("Oh no! The computer has won the battle!")
-    }
-    else if(playerPoint=computerInput)
-        console.log("You've tied with the computer")
-    
+const computerPlay = () => {
+    const arrOfChoices = ['rock', 'paper', 'scissors']
+    const randomNum = Math.floor(Math.random()*3)
+    return arrOfChoices[randomNum]
 }
-game();
+const playRound = (playerSelection, computerSelection)=>{
+    if (computerSelection===playerSelection){
+        return `It's a tie! You both chose ${playerSelection}`
+    }
+    else if (computerSelection==="rock"&& playerSelection==="paper"){
+        playerScore++;
+        return "You won! Paper beats rock!!!"
+    }
+    else if (computerSelection==="rock"&& playerSelection==="scissors"){
+        computerScore++;
+        return "Computer won! Rock beats scissors!!!"
+    }
+    else if (computerSelection==="paper"&& playerSelection==="scissors"){
+        playerScore++;
+        return "You won! Scissors beat paper!!!"
+    }
+    else if (playerSelection==="rock"&& computerSelection==="paper"){
+        computerScore++;
+        return "Computer won! Paper beats rock!!!"
+    }
+    else if (playerSelection==="rock"&& computerSelection==="scissors"){
+        playerScore++;
+        return "You won! Rock beat Scissors!!!"
+    }
+    else if (playerSelection==="paper"&& computerSelection==="scissors"){
+        computerScore++;
+        return "Computer won! Scissors beats paper!!!"
+    }
+}
+const game = () =>{
+    for (let i=0; i<5; i++){
+    const  playerSelection = prompt("Choose one. Rock, paper or scissors").toLowerCase();
+    const computerSelection=computerPlay();
+    console.log(playRound(playerSelection, computerSelection));
+        }
+        if (playerScore>computerScore){
+            return "You beat the computer! 5Head"
+        }
+        else if (playerScore<computerScore){
+            return "You lost to the computer"
+    }
+    else {
+        return "It's  a draw"
+    }
+}
+
+console.log(game());
