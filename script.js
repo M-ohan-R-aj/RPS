@@ -4,13 +4,17 @@ const rockButton=document.querySelector(".rock");
 const paperButton=document.querySelector(".paper");
 const scissorsButton=document.querySelector(".scissors");
 const outcome=document.querySelector(".result")
+const playerChose=document.querySelector(".playerSelection")
+const computerChose=document.querySelector(".computerSelection")
+
+
 const computerPlay = () => {
     const arrOfChoices = ['rock', 'paper', 'scissors']
     const randomNum = Math.floor(Math.random()*3)
     return arrOfChoices[randomNum]
 }
+
 const playRound = (playerSelection, computerSelection)=>{
-    console.log("1", playerSelection , "2", computerSelection);
     if (computerSelection===playerSelection){
         const output=document.createElement("p");
         output.innerText=`It's a tie! You both chose ${playerSelection}`;
@@ -65,7 +69,19 @@ const checkWinner = (playerScore, computerScore)=>{
         const h2=document.createElement("h2")
         h2.classList.add("computerWon")
         h2.innerText = "You lost to the computer. So bad"
-        outcome.appendChild(h2);
+        outcome.appendChild(h2);1
+    }
+}
+
+const computerChoice=()=>{
+    if(computerPlay()==="rock"){
+        computerChose.innerHTML=`<input type="image" src="images/rock.jpg" draggable="false">`
+    }
+    if(computerPlay()==="paper"){
+        computerChose.innerHTML=`<input type="image" src="images/paper.jpg" draggable="false">`
+    }
+    if(computerPlay()==="scissors"){
+        computerChose.innerHTML=`<input type="image" src="images/scissors.jpg" draggable="false">`
     }
 }
 
@@ -74,36 +90,22 @@ rockButton.addEventListener('click', ()=>{
     const playerSelection="rock";
     playRound(playerSelection, computerSelection);
     checkWinner(playerScore, computerScore);
+    playerChose.innerHTML=`<input type="image" src="images/rock.jpg" draggable="false">`
+    computerChoice();
 })
 paperButton.addEventListener('click', ()=>{
     const computerSelection=computerPlay();
     const playerSelection="paper";
     playRound(playerSelection, computerSelection);
     checkWinner(playerScore, computerScore);
+    playerChose.innerHTML=`<input type="image" src="images/paper.jpg" draggable="false">`
+    computerChoice();
 })
 scissorsButton.addEventListener('click', ()=>{
     const computerSelection=computerPlay();
     const playerSelection="scissors";
     playRound(playerSelection, computerSelection);
     checkWinner(playerScore, computerScore);
+    playerChose.innerHTML=`<input type="image" src="images/scissors.jpg" draggable="false">`
+    computerChoice();
 })
-console.log(outcome)
-// const game = () =>{
-//     for (let      i=0; i<5; i++){
-//     var  playerSelection = document.getElementsByClassName("input")
-//     console.log(playerSelection)
-//     const computerSelection=computerPlay();
-//     console.log(playRound(playerSelection, computerSelection));
-//         }
-//         if (playerScore>computerScore){
-//             return "You beat the computer! 5Head"
-//         }
-//         else if (playerScore<computerScore){
-//             return "You lost to the computer"
-//     }
-//     else {
-//         return "It's  a draw"
-//     }
-// }
-
-// console.log(game());
