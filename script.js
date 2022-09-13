@@ -29,7 +29,7 @@ const playRound = (playerSelection, computerSelection)=>{
     else if (computerSelection==="rock"&& playerSelection==="scissors"){
         playerScore++;
         const output=document.createElement("p");
-        output.innerText="You won! Scissors beat paper!!!";
+        output.innerText="Computer won! Rock beat scissors!!!";
         outcome.appendChild(output);
     }
     else if (computerSelection==="paper"&& playerSelection==="scissors"){
