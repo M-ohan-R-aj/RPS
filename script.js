@@ -69,29 +69,20 @@ const checkWinner = (playerScore, computerScore)=>{
         const h2=document.createElement("h2")
         h2.classList.add("computerWon")
         h2.innerText = "You lost to the computer. So bad"
-        outcome.appendChild(h2);1
+        outcome.appendChild(h2);
     }
 }
 
-const computerChoice=()=>{
-    if(computerPlay()==="rock"){
-        computerChose.innerHTML=`<input type="image" src="images/rock.jpg" draggable="false">`
-    }
-    if(computerPlay()==="paper"){
-        computerChose.innerHTML=`<input type="image" src="images/paper.jpg" draggable="false">`
-    }
-    if(computerPlay()==="scissors"){
-        computerChose.innerHTML=`<input type="image" src="images/scissors.jpg" draggable="false">`
-    }
+const computerChoice=(choice)=>{
+        computerChose.innerHTML=`<input type="image" src="images/${choice}.jpg" draggable="false">`
 }
-
 rockButton.addEventListener('click', ()=>{
     const computerSelection=computerPlay();
     const playerSelection="rock";
     playRound(playerSelection, computerSelection);
     checkWinner(playerScore, computerScore);
     playerChose.innerHTML=`<input type="image" src="images/rock.jpg" draggable="false">`
-    computerChoice();
+    computerChoice(computerSelection);
 })
 paperButton.addEventListener('click', ()=>{
     const computerSelection=computerPlay();
@@ -99,7 +90,7 @@ paperButton.addEventListener('click', ()=>{
     playRound(playerSelection, computerSelection);
     checkWinner(playerScore, computerScore);
     playerChose.innerHTML=`<input type="image" src="images/paper.jpg" draggable="false">`
-    computerChoice();
+    computerChoice(computerSelection);
 })
 scissorsButton.addEventListener('click', ()=>{
     const computerSelection=computerPlay();
@@ -107,5 +98,5 @@ scissorsButton.addEventListener('click', ()=>{
     playRound(playerSelection, computerSelection);
     checkWinner(playerScore, computerScore);
     playerChose.innerHTML=`<input type="image" src="images/scissors.jpg" draggable="false">`
-    computerChoice();
+    computerChoice(computerSelection);
 })
