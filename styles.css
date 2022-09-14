@@ -1,0 +1,72 @@
+@font-face {
+    font-family: magic;
+    src: url(Font/QuiteMagicalRegular-8VA2.ttf);
+}
+html, body{
+    height: 100%;
+    border: 0;
+    padding: 0;
+    background-color:rgb(105, 150, 135);
+}
+body{
+    display: flex;
+    flex-flow: column nowrap;
+
+}
+header{
+    text-align: center;
+    font-size: 75px;
+    font-family: magic;
+    color:rgba(202, 33, 33, 0.5);
+}
+.split{
+    height: 100%;
+    width: 100%;
+}
+.input{
+    height: auto;
+    width: 30%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px rgb(82, 76, 76) solid;
+    border-radius: 40px;
+}
+.selection{
+    height: 50%;
+    width: 100%;
+    border: 3px rgb(82, 76, 76) solid;
+    border-radius: 40px;
+}
+.result{
+    height: 50%;
+    border: 3px rgb(82, 76, 76) solid;
+    border-radius: 40px;
+    width: 100%;
+}
+.split{
+    display: flex;
+}
+input{
+    height: 250px;
+    width: 250px;
+    margin: 20px 0px 20px 40px;
+    border-radius: 125px;
+}
+.selection{
+    border: 3px rgb(82, 76, 76) solid;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+}
+.outcome{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+h2{
+    font-size: 50px;
+    color: white;
+
+}
