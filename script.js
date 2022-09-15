@@ -80,11 +80,18 @@ rockButton.addEventListener("click", respond);
 paperButton.addEventListener("click", respond);
 scissorsButton.addEventListener("click", respond);
 function respond(e){
-    const playerSelection = e.target.dataset.choice
+    playerSelection = e.target.dataset.choice
     const computerSelection=computerPlay();
     playRound(playerSelection, computerSelection);
     checkWinner(playerScore, computerScore);
     checkEnd(playerScore. computerScore);
     playerChose.innerHTML=`<input type="image" src="images/scissors.jpg" draggable="false">`
     computerChoice(computerSelection);
+}
+function checkEnd(){
+    if (playerScore===5||computerScore===5){
+        rockButton.removeEventListener("click", respond);
+        paperButton.removeEventListener("click", respond);
+        scissorsButton.removeEventListener("click", respond);
+    }
 }
