@@ -74,29 +74,24 @@ const checkWinner = (playerScore, computerScore)=>{
 }
 
 const computerChoice=(choice)=>{
-        computerChose.innerHTML=`<input type="image" src="images/${choice}.jpg" draggable="false">`
+    computerChose.innerHTML=`<input type="image" src="images/${choice}.jpg" draggable="false">`
 }
-rockButton.addEventListener('click', ()=>{
+rockButton.addEventListener("click", respond);
+paperButton.addEventListener("click", respond);
+scissorsButton.addEventListener("click", respond);
+function respond(e){
+    playerSelection = e.target.dataset.choice
     const computerSelection=computerPlay();
-    const playerSelection="rock";
     playRound(playerSelection, computerSelection);
     checkWinner(playerScore, computerScore);
-    playerChose.innerHTML=`<input type="image" src="images/rock.jpg" draggable="false">`
-    computerChoice(computerSelection);
-})
-paperButton.addEventListener('click', ()=>{
-    const computerSelection=computerPlay();
-    const playerSelection="paper";
-    playRound(playerSelection, computerSelection);
-    checkWinner(playerScore, computerScore);
-    playerChose.innerHTML=`<input type="image" src="images/paper.jpg" draggable="false">`
-    computerChoice(computerSelection);
-})
-scissorsButton.addEventListener('click', ()=>{
-    const computerSelection=computerPlay();
-    const playerSelection="scissors";
-    playRound(playerSelection, computerSelection);
-    checkWinner(playerScore, computerScore);
+    checkEnd(playerScore. computerScore);
     playerChose.innerHTML=`<input type="image" src="images/scissors.jpg" draggable="false">`
     computerChoice(computerSelection);
-})
+}
+function checkEnd(){
+    if (playerScore===5||computerScore===5){
+        rockButton.removeEventListener("click", respond);
+        paperButton.removeEventListener("click", respond);
+        scissorsButton.removeEventListener("click", respond);
+    }
+}
