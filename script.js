@@ -6,8 +6,9 @@ const scissorsButton=document.querySelector(".scissors");
 const outcome=document.querySelector(".result")
 const playerChose=document.querySelector(".playerSelection")
 const computerChose=document.querySelector(".computerSelection")
-
-
+document.querySelector(".playerSelection").style.fontFamily="magic"
+document.querySelector(".computerSelection").style.fontFamily="magic"
+const restartGame=document.querySelector(".restart");
 const computerPlay = () => {
     const arrOfChoices = ['rock', 'paper', 'scissors']
     const randomNum = Math.floor(Math.random()*3)
@@ -85,7 +86,7 @@ function respond(e){
     playRound(playerSelection, computerSelection);
     checkWinner(playerScore, computerScore);
     checkEnd(playerScore. computerScore);
-    playerChose.innerHTML=`<input type="image" src="images/scissors.jpg" draggable="false">`
+    playerChose.innerHTML=`<input type="image" src="images/${playerSelection}.jpg" draggable="false">`
     computerChoice(computerSelection);
 }
 function checkEnd(){
@@ -93,5 +94,6 @@ function checkEnd(){
         rockButton.removeEventListener("click", respond);
         paperButton.removeEventListener("click", respond);
         scissorsButton.removeEventListener("click", respond);
+        restartGame.style.display="flex"
     }
 }
