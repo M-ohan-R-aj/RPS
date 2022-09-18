@@ -2,6 +2,11 @@
     font-family: magic;
     src: url(Font/QuiteMagicalRegular-8VA2.ttf);
 }
+*{
+    box-sizing: border-box;
+    margin: 0; 
+    padding: 0;
+}
 html, body{
     height: 100%;
     border: 0;
@@ -34,13 +39,18 @@ header{
     border-radius: 40px;
 }
 .selection{
-    height: 50%;
+    height: 35%;
     width: 100%;
     border: 3px rgb(82, 76, 76) solid;
     border-radius: 40px;
+    border: 3px rgb(82, 76, 76) solid;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    align-items: center;
 }
 .result{
-    height: 50%;
+    height: 65%;
     border: 3px rgb(82, 76, 76) solid;
     border-radius: 40px;
     width: 100%;
@@ -54,12 +64,6 @@ input{
     margin: 20px 0px 20px 40px;
     border-radius: 125px;
 }
-.selection{
-    border: 3px rgb(82, 76, 76) solid;
-    display: flex;
-    flex-direction: row;
-    justify-content:space-evenly;
-}
 .outcome{
     display: flex;
     flex-direction: column;
@@ -67,6 +71,27 @@ input{
 }
 h2{
     font-size: 50px;
-    color: white;
-
+    color:rgba(202, 33, 33, 0.5);
+    font-family: magic;
+    text-align: center;
+}
+p{
+    text-align: center;
+    font-family: Helvetica;
+}
+h1{
+    color:rgba(202, 33, 33, 0.5);
+    font-family: magic;
+}
+.restart{
+    display: none;
+    align-items: center;
+    color: #333;
+    padding: .4rem 1.3rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    width: 150px;
+    margin: 0 auto;
 }
